@@ -1,0 +1,21 @@
+services:
+  windows:
+    image: dockurr/windows
+    container_name: windows
+    environment:
+      VERSION: "win7"
+      RAM_SIZE: "4G"
+      CPU_CORES: "2"
+      DISK_SIZE: "12G"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8006:8006
+      - 3389:3389/tcp
+      - 3389:3389/udp
+    stop_grace_period: 2m
+    restart: on-failure
+    volumes:
+      - /var/win:/storage
