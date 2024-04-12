@@ -42,7 +42,7 @@ docker compose up
 | Funcional | Não testado | Não testado | Não funcional |
 
 
-```docker-compose.yaml
+```yaml
 
 services:
   windows:
