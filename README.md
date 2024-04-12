@@ -1,4 +1,5 @@
 # RadminVPNOnLinuxAlternative
+# [Em desenvolvimento]
 ## Esse repositorio serve de manual para a utilização do radmin vpn em um container em um linux.
 
 # instalação do docker
@@ -24,7 +25,26 @@ RAM_SIZE: "4G"
 CPU_CORES: "1"
 DISK_SIZE: "12G"
 ```
+## Crie duas redes, uma rede interna e uma rede externa
 
+rede interna
+subnet: 26.0.0.0
+gateway: 26.0.0.1
+ipv4: 26.0.0.3
+
+rede externa
+dhcp
+
+## será necessario da rede interna para fazer um bridge interno no windows 
+
+## a versão colocada dentro do docker-compose pode ser escolhida de forma predefinida 
+### ``"win11","win10","ltsc10","win81","win7","vista","winxp"`` <br>
+ou por meio de uma source
+
+| Windows 7 SP1 | Windows Tiny10 Core  | Windows Tiny11 Core Beta 1 | TinyCore 1809 Beta4 x64  | 
+| :------------ |:---------------:| -----:|-----:|
+| 3.0 GB | 3.6 GB | 2GB | 936.7M|
+| Funcional | Não testado | Não testado | Não funcional |
 
 
 ## adquira o arquivo direto do github
@@ -33,14 +53,7 @@ DISK_SIZE: "12G"
 wget https://raw.githubusercontent.com/lucaspereirasouza/RadminVPNOnLinuxAlternative/main/docker-compose.yaml
 docker compose up
 ```
-
 ## ou crie o docker-compose.yaml e insira as configurações
-
-| Windows 7 SP1 | Windows Tiny10 Core  | Windows Tiny11 Core Beta 1 | TinyCore 1809 Beta4 x64  | 
-| :------------ |:---------------:| -----:|-----:|
-| 3.0 GB | 3.6 GB | 2GB | 936.7M|
-| Funcional | Não testado | Não testado | Não funcional |
-
 
 ```yaml
 
