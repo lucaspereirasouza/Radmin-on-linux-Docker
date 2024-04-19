@@ -28,8 +28,11 @@ DISK_SIZE: "12G"
 ## Crie duas redes, uma rede interna e uma rede externa
 
 rede interna
+
 subnet: 26.0.0.0
+
 gateway: 26.0.0.1
+
 ipv4: 26.0.0.3
 
 rede externa
