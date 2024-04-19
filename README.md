@@ -25,20 +25,15 @@ RAM_SIZE: "4G"
 CPU_CORES: "1"
 DISK_SIZE: "12G"
 ```
-## Crie duas redes, uma rede interna e uma rede externa
+## Crie duas redes, uma rede interna e uma rede externa 
 
-rede interna
+### rede interna:
 
-subnet: 26.0.0.0
+#### subnet: 26.0.0.0
 
-gateway: 26.0.0.1
+#### gateway: 26.0.0.1
 
-ipv4: 26.0.0.3
-
-rede externa
-dhcp
-
-## será necessario da rede interna para fazer um bridge interno no windows 
+#### ipv4: 26.0.0.3
 
 ## a versão colocada dentro do docker-compose pode ser escolhida de forma predefinida 
 ### ``"win11","win10","ltsc10","win81","win7","vista","winxp"`` <br>
@@ -82,3 +77,9 @@ services:
     volumes:
       - /var/win:/storage
 ```
+
+[Em desenvolvimento]
+Docker network
+QEMU
+
+## necessario uma conexão bridge dentro do windows com o radmin vpn e a conexão interna
