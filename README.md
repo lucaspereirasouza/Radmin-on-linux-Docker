@@ -80,6 +80,34 @@ services:
 
 [Em desenvolvimento]
 Docker network
-QEMU
 
 ## necessario uma conexão bridge dentro do windows com o radmin vpn e a conexão interna
+
+Criação da rede virtual interna
+Execute o comando abaixo em seu pseudoTerminal/bash
+```bash
+docker network create -d macvlan \
+    --subnet={ip}/{mascara} \
+    --gateway={gateway}.1 \
+    --ip-range=ip-range/28 \
+    -o parent=eth0 vlan
+```
+e insira as informações de network em seu docker-compose
+```docker-compose
+services:
+  windows:
+    container_name: windows
+    ..<snip>..
+    networks:
+      vlan:
+        ipv4_address: 192.168.0.100
+
+networks:
+  vlan:
+    external: true
+```
+
+
+QEMU
+
+
