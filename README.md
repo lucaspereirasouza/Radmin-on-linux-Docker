@@ -110,4 +110,5 @@ networks:
 
 QEMU
 
-
+## Disclaimer
+The product names, logos, brands, and other trademarks referred to within this project are the property of their respective trademark holders. This project is not affiliated, sponsored, or endorsed by Microsoft Corporation.
