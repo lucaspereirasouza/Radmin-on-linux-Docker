@@ -19,3 +19,23 @@ services:
     restart: on-failure
     volumes:
       - /var/win:/storage
+    networks:
+      radminvpnonlinuxalternative_host:
+        ipv4_address: 172.27.0.2
+      radminvpnonlinuxalternative_external:
+        ipv4_address: 172.28.0.3
+
+networks:
+  radminvpnonlinuxalternative_host:
+    name: radminvpnonlinuxalternative_host
+    internal: true
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.27.0.0/16
+  radminvpnonlinuxalternative_external:
+    name: radminvpnonlinuxalternative_external
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.28.0.0/16
