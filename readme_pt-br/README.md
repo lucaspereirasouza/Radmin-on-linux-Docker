@@ -1,6 +1,13 @@
-# RadminVPNOnLinuxAlternative
-# [Em desenvolvimento]
-## Esse repositorio serve de manual para a utilização do radmin vpn em um container em um linux.
+<br/>
+<div align="center">
+</a>
+<h3 align="center">Alternativa de Radmin VPN no linux</h3>
+<p align="center">
+Radmin VPN using windows docker container virtualization
+<br/>
+<br/>
+</p>
+</div>
 
 # instalação do docker
 
@@ -12,8 +19,11 @@ https://docs.docker.com/engine/install/ubuntu/
 
 Fedora
 https://docs.docker.com/engine/install/fedora/
-<br>
-## Image pull:<br>
+
+Windows
+https://docs.docker.com/desktop/install/windows-install/
+
+## Documentação do container do windows
 <a href="https://github.com/dockur/windows"><img height=50px src="https://github.com/dockur/windows/raw/master/.github/logo.png"></img></a><br>
 [dockurr/windows](https://github.com/dockur/windows)
 
@@ -28,17 +38,16 @@ DISK_SIZE: "12G"
 ## Crie duas redes, uma rede interna e uma rede externa 
 
 ### rede interna:
-
-#### subnet: 26.0.0.0
-
-#### gateway: 26.0.0.1
-
-#### ipv4: 26.0.0.3
-
+```
+subnet: 26.0.0.0
+gateway: 26.0.0.1
+ipv4: 26.0.0.3
+```
 ## a versão colocada dentro do docker-compose pode ser escolhida de forma predefinida 
 ### ``"win11","win10","ltsc10","win81","win7","vista","winxp"`` <br>
 ou por meio de uma source
 
+## Versões testadas com menor peso de armazenamento e proximo de compatibilidade
 | Windows 7 SP1 | Windows Tiny10 Core  | Windows Tiny11 Core Beta 1 | TinyCore 1809 Beta4 x64  | 
 | :------------ |:---------------:| -----:|-----:|
 | 3.0 GB | 3.6 GB | 2GB | 936.7M|
@@ -77,6 +86,9 @@ services:
     volumes:
       - /var/win:/storage
 ```
+Dentro do diretório, execute o comando ``` docker compose up ``` e acesse o localhost para ter o acesso remoto do seu windows
+http://localhost:8006/
+
 
 [Em desenvolvimento]
 Docker network
@@ -91,20 +103,6 @@ docker network create -d macvlan \
     --gateway={gateway}.1 \
     --ip-range=ip-range/28 \
     -o parent=eth0 vlan
-```
-e insira as informações de network em seu docker-compose
-```docker-compose
-services:
-  windows:
-    container_name: windows
-    ..<snip>..
-    networks:
-      vlan:
-        ipv4_address: 192.168.0.100
-
-networks:
-  vlan:
-    external: true
 ```
 
 
