@@ -3,7 +3,7 @@ services:
     image: dockurr/windows
     container_name: windows
     environment:
-      VERSION: "win7"
+      VERSION: "win10"
       RAM_SIZE: "4G"
       CPU_CORES: "2"
       DISK_SIZE: "12G"
@@ -20,22 +20,23 @@ services:
     volumes:
       - /var/win:/storage
     networks:
-      radminvpnonlinuxalternative_host:
-        ipv4_address: 172.27.0.2
-      radminvpnonlinuxalternative_external:
-        ipv4_address: 172.28.0.3
-
+      _host:
+        ipv4_address: 172.11.0.2
+      _external:
+        ipv4_address: 172.12.0.3
 networks:
-  radminvpnonlinuxalternative_host:
-    name: radminvpnonlinuxalternative_host
+  _host:
+    name: radminvpn_internal
     internal: true
     ipam:
       driver: default
       config:
-      - subnet: 172.27.0.0/16
-  radminvpnonlinuxalternative_external:
-    name: radminvpnonlinuxalternative_external
+      - subnet: 172.11.0.0/16
+        gateway: 172.11.0.1
+  _external:
+    name: radminvpn_external
     ipam:
       driver: default
       config:
-      - subnet: 172.28.0.0/16
+      - subnet: 172.12.0.0/16
+        gateway: 172.12.0.1
