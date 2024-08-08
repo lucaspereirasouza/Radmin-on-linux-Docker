@@ -1,15 +1,15 @@
 <br/>
 <div align="center">
 </a>
-<h3 align="center">Alternativa de Radmin VPN no linux</h3>
+<h3 align="center">Radmin VPN on Docker</h3>
 <p align="center">
-Radmin VPN using windows docker container virtualization
+Radmin on Linux using docker virtualization
 <br/>
 <br/>
 </p>
 </div>
 
-# instalação do docker
+# Docker installation:
 
 Debian:
 https://docs.docker.com/engine/install/debian/
@@ -23,44 +23,44 @@ https://docs.docker.com/engine/install/fedora/
 Windows
 https://docs.docker.com/desktop/install/windows-install/
 
-## Documentação do container do windows
+## Docker image document
 <a href="https://github.com/dockur/windows"><img height=50px src="https://github.com/dockur/windows/raw/master/.github/logo.png"></img></a><br>
 [dockurr/windows](https://github.com/dockur/windows)
 
 
 
-Requisitos necessarios para a utilização do windows no container <br>
+Minimum requisited for use Dockur <br>
 ```
 RAM_SIZE: "4G"
 CPU_CORES: "1"
 DISK_SIZE: "12G"
-```
-## Crie duas redes, uma rede interna e uma rede externa 
+``` 
 
-### rede interna:
+### Internal network:
 ```
 subnet: 26.0.0.0
 gateway: 26.0.0.1
 ipv4: 26.0.0.3
 ```
-## a versão colocada dentro do docker-compose pode ser escolhida de forma predefinida 
+## Windows versions aliases, also you can redirect an iso with a link: 
 ### ``"win11","win10","ltsc10","win81","win7","vista","winxp"`` <br>
-ou por meio de uma source
 
-## Versões testadas com menor peso de armazenamento e proximo de compatibilidade
+## Tested versions, stability, functionality, etc:
 | Windows 7 SP1 | Windows Tiny10 Core  | Windows Tiny11 Core Beta 1 | TinyCore 1809 Beta4 x64  | 
 | :------------ |:---------------:| -----:|-----:|
 | 3.0 GB | 3.6 GB | 2GB | 936.7M|
-| Funcional | Não testado | Não testado | Não funcional |
+| Works | Not tested | Not tested | Not working |
 
 
-## adquira o arquivo direto do github
+## Installation
+
+## Get this archive directly from github
 
 ```
 wget https://raw.githubusercontent.com/lucaspereirasouza/RadminVPNOnLinuxAlternative/main/docker-compose.yaml
 docker compose up
 ```
-## ou crie o docker-compose.yaml e insira as configurações
+## or create a docker-compose.yaml
 
 ```yaml
 
@@ -86,17 +86,16 @@ services:
     volumes:
       - /var/win:/storage
 ```
-Dentro do diretório, execute o comando ``` docker compose up ``` e acesse o localhost para ter o acesso remoto do seu windows
+then do ``` docker compose up ```
+port: 8006
 http://localhost:8006/
 
 
-[Em desenvolvimento]
+[Developing]
 Docker network
+In this moment the virtualizer QEMU doesn't have automation to recognize the networks created outside the emulation
+...
 
-## necessario uma conexão bridge dentro do windows com o radmin vpn e a conexão interna
-
-Criação da rede virtual interna
-Execute o comando abaixo em seu pseudoTerminal/bash
 ```bash
 docker network create -d macvlan \
     --subnet={ip}/{mascara} \
