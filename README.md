@@ -43,11 +43,11 @@ ipv4: 27.0.0.3
 ### ``"win11","win10","ltsc10","win81","win7","vista","winxp"`` <br>
 
 ## Tested versions:
+
 | Windows 7 SP1 | Windows Tiny10 Core  | Windows Tiny11 Core Beta 1 | TinyCore 1809 Beta4 x64  | 
 | :------------ |:---------------:| -----:|-----:|
-| 3.0 GB | 3.6 GB | 2GB | 936.7M|
+| 3.0 GB | 3.6 GB | 2GB | 936.7MB|
 | Working | Not tested | Not tested | Not working |
-
 
 ## Installation
 ```
@@ -86,7 +86,7 @@ services:
 ### http://localhost:8006/
 
 ## virt-manager for networking configuration
-
+...
 
 QEMU
 Virt-Manager
