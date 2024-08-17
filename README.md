@@ -14,7 +14,6 @@ Radmin on Linux using docker virtualization
 https://docs.docker.com/engine/install/
 
 ## Virt-manager
-### apt install virt-manager
 ## Dockur image document
 <a href="https://github.com/dockur/windows"><img height=50px src="https://github.com/dockur/windows/raw/master/.github/logo.png"></img></a><br>
 [dockurr/windows](https://github.com/dockur/windows)
