@@ -3,7 +3,7 @@ services:
     image: dockurr/windows
     container_name: windows
     environment:
-      VERSION: "win10"
+      VERSION: "win7"
       RAM_SIZE: "4G"
       CPU_CORES: "2"
       DISK_SIZE: "12G"
@@ -35,6 +35,7 @@ networks:
         gateway: 172.11.0.1
   _external:
     name: radminvpn_external
+    external: false
     ipam:
       driver: default
       config:
