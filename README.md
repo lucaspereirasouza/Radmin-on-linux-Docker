@@ -3,7 +3,7 @@
   <div align="center">
 </a>
   
-<h3 align="center">Radmin VPN on Docker</h3>
+<h3 align="center">Radmin VPN on Docker with Dockurr</h3>
 <p align="center">
 Radmin on Linux using docker virtualization
 <br/>
