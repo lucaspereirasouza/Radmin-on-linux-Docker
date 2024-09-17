@@ -13,31 +13,34 @@ services:
       - NET_ADMIN
     ports:
       - 8006:8006
-      - 3389:3389/tcp
-      - 3389:3389/udp
+      - 3390:3389/tcp
+      - 3390:3389/udp
     stop_grace_period: 2m
     restart: on-failure
     volumes:
-      - /var/win:/storage
+      - /mnt/HDD/windows:/storage
+      - /mnt/HDD/windows/shared:/shared
     networks:
-      _host:
-        ipv4_address: 172.11.0.2
       _external:
-        ipv4_address: 172.12.0.3
+        ipv4_address: 172.25.0.3
+      _internal:
+        ipv4_address: 172.26.0.2
 networks:
-  _host:
-    name: radminvpn_internal
-    internal: true
-    ipam:
-      driver: default
-      config:
-      - subnet: 172.11.0.0/16
-        gateway: 172.11.0.1
   _external:
     name: radminvpn_external
     external: false
-    ipam:
-      driver: default
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:  
       config:
-      - subnet: 172.12.0.0/16
-        gateway: 172.12.0.1
+      - subnet: 172.25.0.0/16
+        gateway: 172.25.0.1
+  _internal:
+    name: windows_internal_network
+    external: false
+    driver: macvlan
+    ipam:
+      config:
+      - subnet: 172.26.0.0/16
+        gateway: 172.26.0.1
