@@ -1,14 +1,14 @@
-from scratch
-copy --from=qemux/qemu-docker:latest / /
+FROM scratch
+COPY --from=qemux/qemu-docker:latest / /
 
 ARG VERSION_ARG="0.1"
 ARG DEBCONF_NOWARNINGS="yes"
 ARG DEBIAN_FRONTEND="noninteractive"
 ARG DEBCONF_NOINTERACTIVE_SEEN="true"
 
-RUN set -eu && apt-get update && apt update && apt-get install --no-install-recommends -y \
-    bc curl 7zip wsdd samba xz-utils wimtools dos2unix cabextract genisoimage libxml2-utils && \
-    apt install libvirt0 libvirt-daemon libvirt-daemon-system --no-recommends-install \
+RUN set -eu && apt-get update && apt update && apt-get install \
+    bc curl 7zip wsdd samba xz-utils wimtools dos2unix cabextract genisoimage libxml2-utils \
+    libvirt0 libvirt-daemon libvirt-daemon-system --no-install-recommends -y &&\
     apt-get clean && \
     echo "$VERSION_ARG" > /run/version && \
     rm -rf /var/lib/apt/lists* /tmp/* /var/tmp* \
