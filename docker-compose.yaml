@@ -1,6 +1,7 @@
 services:
   windows:
-    image: dockurr/windows
+    build: .
+    image: windows_libvirt_image:0.1
     container_name: windows
     environment:
       VERSION: "win7"
