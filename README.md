@@ -1,7 +1,7 @@
 <br/>
-<a href=readme_pt-br/README.md>Documentação em português</a>
+  
   <div align="center">
-</a>
+  <img height=150px src="https://github.com/lucaspereirasouza/Radmin-on-linux-Docker/blob/main/src/readme/RadminOnDocker.png"></img>
   
 <h3 align="center">Radmin VPN on Docker with Dockurr [W.I.P]</h3>
 <p align="center">
@@ -10,6 +10,7 @@ Radmin on Linux using docker virtualization
 <br/>
 </p>
 </div>
+<a href=readme_pt-br/README.md>Documentação em português</a>
 
 # Pre-install
 ## Docker installation:
