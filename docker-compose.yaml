@@ -4,7 +4,7 @@ services:
     image: windows_libvirt_image:0.1
     container_name: windows
     environment:
-      VERSION: "win7"
+      VERSION: "2008"
       RAM_SIZE: "4G"
       CPU_CORES: "2"
       DISK_SIZE: "12G"
