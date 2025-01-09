@@ -30,7 +30,7 @@ networks:
   _external:
     name: radminvpn_external
     external: false
-    driver: macvlan
+    driver: bridge
     driver_opts:
       parent: eth0
     ipam:  
