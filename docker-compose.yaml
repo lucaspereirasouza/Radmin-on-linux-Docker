@@ -32,7 +32,7 @@ networks:
     external: false
     driver: bridge
     driver_opts:
-      parent: eth0
+      gateway_mode_ipv4: nat
     ipam:  
       config:
       - subnet: 172.25.0.0/16
