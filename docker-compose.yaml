@@ -41,6 +41,8 @@ networks:
     name: windows_internal_network
     external: false
     driver: macvlan
+    driver_opts:
+      macvlan_mode: bridge
     ipam:
       config:
       - subnet: 172.26.0.0/16
