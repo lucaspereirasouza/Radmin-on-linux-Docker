@@ -26,6 +26,6 @@ RUN set -eu && apt-get update && apt update && apt-get install \
     ENV RAM_SIZE="4G"
     ENV CPU_CORES="2"
     ENV DISK_SIZE="64G"
-    ENV VERSION="win11"
+    ENV VERSION="2008"
     
     ENTRYPOINT ["/usr/bin/tini", "-s", "/run/entry.sh"]
