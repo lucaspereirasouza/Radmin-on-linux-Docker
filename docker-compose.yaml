@@ -4,7 +4,7 @@ services:
     image: windows_libvirt_image:0.1
     container_name: windows
     environment:
-      VERSION: "2008"
+      VERSION: "win7"
       RAM_SIZE: "4G"
       CPU_CORES: "2"
       DISK_SIZE: "12G"
@@ -33,10 +33,10 @@ networks:
     driver: bridge
     driver_opts:
       gateway_mode_ipv4: nat
-    ipam:  
+    ipam:
       config:
-      - subnet: 172.25.0.0/16
-        gateway: 172.25.0.1
+        - subnet: 172.25.0.0/16
+          gateway: 172.25.0.1
   _internal:
     name: windows_internal_network
     external: false
@@ -45,5 +45,5 @@ networks:
       macvlan_mode: bridge
     ipam:
       config:
-      - subnet: 26.0.0.0/16
-        gateway: 26.0.0.1
+        - subnet: 26.0.0.0/16
+          gateway: 26.0.0.1
