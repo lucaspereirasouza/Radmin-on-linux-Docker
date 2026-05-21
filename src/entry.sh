@@ -2,12 +2,14 @@
 set -Eeuo pipefail
 
 : "${BOOT_MODE:="windows"}"
+: "${PLATFORM:="x64"}"
 
 APP="Windows"
 SUPPORT="https://github.com/dockur/windows"
 
 cd /run
 
+. utils.sh      # Load functions
 . reset.sh      # Initialize system
 . define.sh     # Define versions
 . mido.sh       # Download code
@@ -20,6 +22,8 @@ cd /run
 . proc.sh       # Initialize processor
 . power.sh      # Configure shutdown
 . config.sh     # Configure arguments
+. custom_network.sh # Configure second network interface
+
 
 trap - ERR
 
