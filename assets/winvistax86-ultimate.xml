@@ -151,11 +151,6 @@
           <Description>Allow guest access to network shares</Description>
         </SynchronousCommand>
         <SynchronousCommand wcm:action="add">
-          <Order>2</Order>
-          <CommandLine>reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v LimitBlankPasswordUse /t REG_DWORD /d 0 /f</CommandLine>
-          <Description>Allow RDP login with blank password</Description>
-        </SynchronousCommand>
-        <SynchronousCommand wcm:action="add">
           <Order>3</Order>
           <CommandLine>cmd /C wmic useraccount where name="Docker" set PasswordExpires=false</CommandLine>
           <Description>Password Never Expires</Description>
@@ -238,20 +233,30 @@
         <SynchronousCommand wcm:action="add">
           <Order>19</Order>
           <CommandLine>reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v "fAllowUnlistedRemotePrograms" /t REG_DWORD /d 1 /f</CommandLine>
-          <Description>Enable RemoteAPP to launch unlisted programs</Description>
+          <Description>Enable RemoteApp to launch unlisted programs</Description>
         </SynchronousCommand>
         <SynchronousCommand wcm:action="add">
           <Order>20</Order>
+          <CommandLine>reg.exe add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\TSAppAllowList" /v "fDisabledAllowList" /t REG_DWORD /d 1 /f</CommandLine>
+          <Description>Disable RemoteApp allowlist</Description>
+        </SynchronousCommand>
+        <SynchronousCommand wcm:action="add">
+          <Order>21</Order>
           <CommandLine>netsh advfirewall firewall set rule group="@FirewallAPI.dll,-32752" new enable=Yes</CommandLine>
           <Description>Enable Network Discovery</Description>
         </SynchronousCommand>
         <SynchronousCommand wcm:action="add">
-          <Order>21</Order>
+          <Order>22</Order>
           <CommandLine>netsh advfirewall firewall set rule group="@FirewallAPI.dll,-28502" new enable=Yes</CommandLine>
           <Description>Enable File Sharing</Description>
         </SynchronousCommand>
         <SynchronousCommand wcm:action="add">
-          <Order>22</Order>
+          <Order>23</Order>
+          <CommandLine>cmd /C mklink /d %userprofile%\Desktop\Shared \\host.lan\Data</CommandLine>
+          <Description>Create desktop shortcut to shared folder</Description>
+        </SynchronousCommand>
+        <SynchronousCommand wcm:action="add">
+          <Order>24</Order>
           <CommandLine>cmd /C if exist "C:\OEM\install.bat" start "Install" "cmd /C C:\OEM\install.bat"</CommandLine>
           <Description>Execute custom script from the OEM folder if exists</Description>
         </SynchronousCommand>

@@ -152,6 +152,15 @@
         </FirewallGroup>
       </FirewallGroups>
     </component>
+    <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+      <RunSynchronous>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>1</Order>
+          <Path>C:\Windows\Drivers\Balloon\blnsvr.exe -i</Path>
+          <Description>Install VirtIO Balloon service</Description>
+        </RunSynchronousCommand>
+      </RunSynchronous>
+    </component>
   </settings>
   <settings pass="oobeSystem">
     <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
@@ -200,11 +209,6 @@
           <Order>1</Order>
           <CommandLine>reg.exe add "HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters" /v "AllowInsecureGuestAuth" /t REG_DWORD /d 1 /f</CommandLine>
           <Description>Allow guest access to network shares</Description>
-        </SynchronousCommand>
-        <SynchronousCommand wcm:action="add">
-          <Order>2</Order>
-          <CommandLine>reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v LimitBlankPasswordUse /t REG_DWORD /d 0 /f</CommandLine>
-          <Description>Allow RDP login with blank password</Description>
         </SynchronousCommand>
         <SynchronousCommand wcm:action="add">
           <Order>3</Order>
@@ -278,6 +282,11 @@
         </SynchronousCommand>
         <SynchronousCommand wcm:action="add">
           <Order>17</Order>
+          <CommandLine>cmd /C mklink /d %userprofile%\Desktop\Shared \\host.lan\Data</CommandLine>
+          <Description>Create desktop shortcut to shared folder</Description>
+        </SynchronousCommand>        
+        <SynchronousCommand wcm:action="add">
+          <Order>18</Order>
           <CommandLine>cmd /C if exist "C:\OEM\install.bat" start "Install" "cmd /C C:\OEM\install.bat"</CommandLine>
           <Description>Execute custom script from the OEM folder if exists</Description>
         </SynchronousCommand>
