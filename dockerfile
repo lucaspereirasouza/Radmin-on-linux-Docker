@@ -35,7 +35,7 @@ ADD --chmod=664 https://github.com/qemus/virtiso-whql/releases/download/v${VERSI
 FROM dockurr/windows-arm:${VERSION_ARG} AS build-arm64
 FROM build-${TARGETARCH}
 
-ARG VERSION_ARG="0.00"
+ARG VERSION_ARG="0.02"
 RUN echo "$VERSION_ARG" > /run/version
 
 VOLUME /storage
