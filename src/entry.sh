@@ -4,6 +4,13 @@ set -Eeuo pipefail
 : "${BOOT_MODE:="windows"}"
 : "${PLATFORM:="x64"}"
 
+# Default port configuration (lost from qemux/qemu ENV due to FROM scratch)
+: "${VNC_PORT:="5900"}"   # VNC server port
+: "${WSS_PORT:="8006"}"   # WebSocket port (web browser access)
+: "${MON_PORT:="7100"}"   # QEMU monitor port
+: "${WEB_PORT:="8006"}"   # Web interface port
+: "${WSD_PORT:="3702"}"   # WS-Discovery daemon port
+
 APP="Windows"
 SUPPORT="https://github.com/dockur/windows"
 
