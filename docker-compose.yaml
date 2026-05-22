@@ -8,6 +8,7 @@ services:
       RAM_SIZE: "4G"
       CPU_CORES: "2"
       DISK_SIZE: "10G"
+      VNC_PORT: "5900"
     devices:
       - /dev/kvm
     cap_add:
