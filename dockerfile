@@ -13,6 +13,12 @@ ARG DEBCONF_NOWARNINGS="yes"
 ARG DEBIAN_FRONTEND="noninteractive"
 ARG DEBCONF_NONINTERACTIVE_SEEN="true"
 
+ENV VNC_PORT="3389"
+ENV WSS_PORT="5900"
+ENV MON_PORT="5901"
+ENV WEB_PORT="5902"
+ENV WSD_PORT="8006"
+
 RUN set -eu && \
     apt-get update && \
     apt-get --no-install-recommends -y install \
