@@ -19,8 +19,8 @@ services:
     stop_grace_period: 2m
     restart: on-failure
     volumes:
-      - /mnt/HDD/windows:/storage
-      - /mnt/HDD/windows/shared:/shared
+      - ./storage:/storage
+      - ./shared:/shared
     networks:
       _external:
         ipv4_address: 172.25.0.3
