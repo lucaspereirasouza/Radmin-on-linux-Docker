@@ -7,7 +7,7 @@ services:
       VERSION: "7"
       RAM_SIZE: "4G"
       CPU_CORES: "2"
-      DISK_SIZE: "15G"
+      DISK_SIZE: "10G"
     devices:
       - /dev/kvm
     cap_add:
