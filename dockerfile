@@ -13,16 +13,9 @@ ARG DEBCONF_NOWARNINGS="yes"
 ARG DEBIAN_FRONTEND="noninteractive"
 ARG DEBCONF_NONINTERACTIVE_SEEN="true"
 
-ENV VNC_PORT="5900"
-ENV WSS_PORT="5901"
-ENV MON_PORT="5902"
-ENV WEB_PORT="5903"
-ENV WSD_PORT="8006"
-
 RUN set -eu && \
     apt-get update && \
     apt-get --no-install-recommends -y install \
-    samba \
     wimtools \
     dos2unix \
     cabextract \
@@ -43,8 +36,8 @@ FROM build-${TARGETARCH}
 
 ARG VERSION_ARG="0.02"
 RUN echo "$VERSION_ARG" > /run/version
-# Branch 
+
 VOLUME /storage
-EXPOSE 3389 8006
+EXPOSE 5900 8006
 
 ENTRYPOINT ["/usr/bin/tini", "-s", "/run/entry.sh"]
