@@ -719,7 +719,7 @@ addDrivers() {
   local index="$2"
   local version="$3"
 
-  local msg="Adding drivers to image..."
+  local msg="Adding drivers to image.1.."
   info "$msg" && html "$msg"
 
   local drivers="$TMP/drivers"

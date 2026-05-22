@@ -1883,7 +1883,7 @@ prepareInstall() {
     error "Failed to locate file \"$ETFS\" in $desc ISO image!" && return 1
   fi
 
-  local msg="Adding drivers to image..."
+  local msg="Adding drivers to image.2.."
   info "$msg" && html "$msg"
 
   mkdir -p "$drivers"
